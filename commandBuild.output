@@ -1,0 +1,169 @@
+######
+
+Output from the following command:
+
+msaavedra@mike:~/workspace/trapster-demo$ mvn clean install -U > commandBuild.output
+
+######
+
+
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] trapster-demo
+[INFO] Spring Data JPA sample
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building trapster-demo 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.3:clean (default-clean) @ trapster-demo ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.3:install (default-install) @ trapster-demo ---
+[INFO] Installing /home/msaavedra/workspace/trapster-demo/pom.xml to /home/msaavedra/.m2/repository/com/marithic/trapster-demo/1.0-SNAPSHOT/trapster-demo-1.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Spring Data JPA sample 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: http://repo.maven.apache.org/maven2/org/springframework/spring-beans/maven-metadata.xml
+Downloading: http://repo.springsource.org/libs-release/org/springframework/spring-beans/maven-metadata.xml
+Downloading: http://maven.springframework.org/release/org/springframework/spring-beans/maven-metadata.xml
+2/2 KB            Downloaded: http://repo.maven.apache.org/maven2/org/springframework/spring-beans/maven-metadata.xml (2 KB at 10.0 KB/sec)
+2/2 KB   2/2 KB   2/2 KB                     Downloaded: http://maven.springframework.org/release/org/springframework/spring-beans/maven-metadata.xml (2 KB at 3.0 KB/sec)
+                  Downloaded: http://repo.springsource.org/libs-release/org/springframework/spring-beans/maven-metadata.xml (2 KB at 3.5 KB/sec)
+Downloading: http://repo.springsource.org/libs-release/org/springframework/spring-orm/maven-metadata.xml
+Downloading: http://maven.springframework.org/release/org/springframework/spring-orm/maven-metadata.xml
+Downloading: http://repo.maven.apache.org/maven2/org/springframework/spring-orm/maven-metadata.xml
+2/2 KB                     Downloaded: http://repo.maven.apache.org/maven2/org/springframework/spring-orm/maven-metadata.xml (2 KB at 21.3 KB/sec)
+825/825 B   2/2 KB   825/825 B                        Downloaded: http://maven.springframework.org/release/org/springframework/spring-orm/maven-metadata.xml (825 B at 2.7 KB/sec)
+                     Downloaded: http://repo.springsource.org/libs-release/org/springframework/spring-orm/maven-metadata.xml (2 KB at 5.9 KB/sec)
+Downloading: http://repo.springsource.org/libs-release/org/springframework/spring-tx/maven-metadata.xml
+Downloading: http://maven.springframework.org/release/org/springframework/spring-tx/maven-metadata.xml
+Downloading: http://repo.maven.apache.org/maven2/org/springframework/spring-tx/maven-metadata.xml
+2/2 KB                        Downloaded: http://repo.maven.apache.org/maven2/org/springframework/spring-tx/maven-metadata.xml (2 KB at 13.1 KB/sec)
+2/2 KB   824/824 B   2/2 KB                        Downloaded: http://repo.springsource.org/libs-release/org/springframework/spring-tx/maven-metadata.xml (2 KB at 3.7 KB/sec)
+                     Downloaded: http://maven.springframework.org/release/org/springframework/spring-tx/maven-metadata.xml (824 B at 2.7 KB/sec)
+Downloading: http://repo.springsource.org/libs-release/org/springframework/spring-core/maven-metadata.xml
+Downloading: http://repo.maven.apache.org/maven2/org/springframework/spring-core/maven-metadata.xml
+Downloading: http://maven.springframework.org/release/org/springframework/spring-core/maven-metadata.xml
+2/3 KB               3/3 KB            Downloaded: http://repo.maven.apache.org/maven2/org/springframework/spring-core/maven-metadata.xml (3 KB at 23.7 KB/sec)
+2/2 KB   2/2 KB   3/3 KB                     Downloaded: http://maven.springframework.org/release/org/springframework/spring-core/maven-metadata.xml (2 KB at 4.0 KB/sec)
+                  Downloaded: http://repo.springsource.org/libs-release/org/springframework/spring-core/maven-metadata.xml (3 KB at 7.3 KB/sec)
+[INFO] 
+[INFO] --- maven-clean-plugin:2.3:clean (default-clean) @ spring-data-jpa-example ---
+[INFO] Deleting file set: /home/msaavedra/workspace/trapster-demo/spring-data-jpa-example/target (included: [**], excluded: [])
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ spring-data-jpa-example ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 8 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ spring-data-jpa-example ---
+[INFO] Compiling 8 source files to /home/msaavedra/workspace/trapster-demo/spring-data-jpa-example/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:testResources (default-testResources) @ spring-data-jpa-example ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/msaavedra/workspace/trapster-demo/spring-data-jpa-example/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ spring-data-jpa-example ---
+[INFO] Compiling 5 source files to /home/msaavedra/workspace/trapster-demo/spring-data-jpa-example/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ spring-data-jpa-example ---
+[INFO] Surefire report directory: /home/msaavedra/workspace/trapster-demo/spring-data-jpa-example/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.springframework.data.jpa.example.repository.BasicFactorySetup
+14:31:54,203 ERROR            org.hibernate.tool.hbm2ddl.SchemaExport: 425 - HHH000389: Unsuccessful: alter table AuditableUser drop constraint FKF86479009C2F468
+14:31:54,207 ERROR            org.hibernate.tool.hbm2ddl.SchemaExport: 426 - user lacks privilege or object not found: PUBLIC.AUDITABLEUSER
+14:31:54,208 ERROR            org.hibernate.tool.hbm2ddl.SchemaExport: 425 - HHH000389: Unsuccessful: alter table AuditableUser drop constraint FKF8647900452C8651
+14:31:54,208 ERROR            org.hibernate.tool.hbm2ddl.SchemaExport: 426 - user lacks privilege or object not found: PUBLIC.AUDITABLEUSER
+14:31:54,575 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByFirstname
+14:31:54,609  WARN        org.hibernate.hql.internal.ast.HqlSqlWalker: 929 - [DEPRECATION] Encountered positional parameter near line 1, column 86.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+14:31:54,620 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByFirstnameOrLastname
+14:31:54,639 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByTheUsersName
+14:31:54,642 DEBUG ringframework.data.jpa.repository.query.NamedQuery: 108 - Looking up named query User.findByTheUsersName
+14:31:54,643 DEBUG ringframework.data.jpa.repository.query.NamedQuery:  93 - Did not find named query User.findByTheUsersName.count
+14:31:54,645 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByLastname
+14:31:54,648 DEBUG ringframework.data.jpa.repository.query.NamedQuery: 108 - Looking up named query User.findByLastname
+14:31:54,649 DEBUG ringframework.data.jpa.repository.query.NamedQuery:  93 - Did not find named query User.findByLastname.count
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.043 sec
+Running org.springframework.data.jpa.example.repository.BasicSample
+14:31:55,211  WARN ibernate.ejb.internal.EntityManagerFactoryRegistry:  80 - HHH000436: Entity manager factory name (jpa.sample.plain) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.271 sec
+Running org.springframework.data.jpa.example.repository.UserRepositorySample
+14:31:55,579 DEBUG ry.config.AbstractRepositoryConfigDefinitionParser: 101 - Triggering auto repository detection
+14:31:55,673 DEBUG ConfigDefinitionParser$RepositoryComponentProvider: 244 - Identified candidate component class: file [/home/msaavedra/workspace/trapster-demo/spring-data-jpa-example/target/classes/org/springframework/data/jpa/example/repository/simple/SimpleUserRepository.class]
+14:31:55,681 DEBUG ConfigDefinitionParser$RepositoryComponentProvider: 244 - Identified candidate component class: file [/home/msaavedra/workspace/trapster-demo/spring-data-jpa-example/target/classes/org/springframework/data/jpa/example/repository/UserRepository.class]
+14:31:55,741 DEBUG ry.config.AbstractRepositoryConfigDefinitionParser: 194 - Registering repository: simpleUserRepository - Interface: org.springframework.data.jpa.example.repository.simple.SimpleUserRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean, - Custom implementation: null
+14:31:55,742 DEBUG ry.config.AbstractRepositoryConfigDefinitionParser: 194 - Registering repository: userRepository - Interface: org.springframework.data.jpa.example.repository.UserRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean, - Custom implementation: userRepositoryImpl
+14:31:56,710 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByFirstname
+14:31:56,749 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByTheUsersName
+14:31:56,750 DEBUG ringframework.data.jpa.repository.query.NamedQuery: 108 - Looking up named query User.findByTheUsersName
+14:31:56,753 DEBUG ringframework.data.jpa.repository.query.NamedQuery:  93 - Did not find named query User.findByTheUsersName.count
+14:31:56,755 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByLastname
+14:31:56,757 DEBUG ringframework.data.jpa.repository.query.NamedQuery: 108 - Looking up named query User.findByLastname
+14:31:56,759 DEBUG ringframework.data.jpa.repository.query.NamedQuery:  93 - Did not find named query User.findByLastname.count
+14:31:56,795 DEBUG ocessor$CustomAnnotationTransactionAttributeSource: 288 - Adding transactional method 'save' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+14:31:56,799 DEBUG ocessor$CustomAnnotationTransactionAttributeSource: 288 - Adding transactional method 'findOne' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+2012-10-18
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.646 sec
+Running org.springframework.data.jpa.example.repository.AuditableUserSample
+14:31:57,005 DEBUG ry.config.AbstractRepositoryConfigDefinitionParser: 101 - Triggering auto repository detection
+14:31:57,013 DEBUG ConfigDefinitionParser$RepositoryComponentProvider: 244 - Identified candidate component class: file [/home/msaavedra/workspace/trapster-demo/spring-data-jpa-example/target/classes/org/springframework/data/jpa/example/repository/simple/SimpleUserRepository.class]
+14:31:57,021 DEBUG ry.config.AbstractRepositoryConfigDefinitionParser: 194 - Registering repository: simpleUserRepository - Interface: org.springframework.data.jpa.example.repository.simple.SimpleUserRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean, - Custom implementation: null
+14:31:57,670  WARN ibernate.ejb.internal.EntityManagerFactoryRegistry:  80 - HHH000436: Entity manager factory name (jpa.sample) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+14:31:57,705 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByFirstname
+14:31:57,716  WARN        org.hibernate.hql.internal.ast.HqlSqlWalker: 929 - [DEPRECATION] Encountered positional parameter near line 1, column 86.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+14:31:57,720 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByFirstnameOrLastname
+14:31:57,737 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByTheUsersName
+14:31:57,739 DEBUG ringframework.data.jpa.repository.query.NamedQuery: 108 - Looking up named query User.findByTheUsersName
+14:31:57,741 DEBUG ringframework.data.jpa.repository.query.NamedQuery:  93 - Did not find named query User.findByTheUsersName.count
+14:31:57,744 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByLastname
+14:31:57,746 DEBUG ringframework.data.jpa.repository.query.NamedQuery: 108 - Looking up named query User.findByLastname
+14:31:57,749 DEBUG ringframework.data.jpa.repository.query.NamedQuery:  93 - Did not find named query User.findByLastname.count
+14:31:57,761 DEBUG ocessor$CustomAnnotationTransactionAttributeSource: 288 - Adding transactional method 'save' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+14:31:57,874 DEBUG ork.data.jpa.domain.support.AuditingEntityListener: 143 - Touched Entity of type org.springframework.data.jpa.example.auditing.AuditableUser with id: null - Last modification at 2012-10-18T14:31:57.774-07:00 by Entity of type org.springframework.data.jpa.example.auditing.AuditableUser with id: null
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.004 sec
+Running org.springframework.data.jpa.example.repository.SimpleUserRepositorySample
+14:31:58,010 DEBUG ry.config.AbstractRepositoryConfigDefinitionParser: 101 - Triggering auto repository detection
+14:31:58,017 DEBUG ConfigDefinitionParser$RepositoryComponentProvider: 244 - Identified candidate component class: file [/home/msaavedra/workspace/trapster-demo/spring-data-jpa-example/target/classes/org/springframework/data/jpa/example/repository/simple/SimpleUserRepository.class]
+14:31:58,024 DEBUG ry.config.AbstractRepositoryConfigDefinitionParser: 194 - Registering repository: simpleUserRepository - Interface: org.springframework.data.jpa.example.repository.simple.SimpleUserRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean, - Custom implementation: null
+14:31:58,357  WARN ibernate.ejb.internal.EntityManagerFactoryRegistry:  80 - HHH000436: Entity manager factory name (jpa.sample) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+14:31:58,390 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByFirstname
+14:31:58,401  WARN        org.hibernate.hql.internal.ast.HqlSqlWalker: 929 - [DEPRECATION] Encountered positional parameter near line 1, column 86.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+14:31:58,405 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByFirstnameOrLastname
+14:31:58,421 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByTheUsersName
+14:31:58,422 DEBUG ringframework.data.jpa.repository.query.NamedQuery: 108 - Looking up named query User.findByTheUsersName
+14:31:58,424 DEBUG ringframework.data.jpa.repository.query.NamedQuery:  93 - Did not find named query User.findByTheUsersName.count
+14:31:58,426 DEBUG framework.data.jpa.repository.query.SimpleJpaQuery: 122 - Looking up query for method findByLastname
+14:31:58,427 DEBUG ringframework.data.jpa.repository.query.NamedQuery: 108 - Looking up named query User.findByLastname
+14:31:58,430 DEBUG ringframework.data.jpa.repository.query.NamedQuery:  93 - Did not find named query User.findByLastname.count
+14:31:58,437 DEBUG ocessor$CustomAnnotationTransactionAttributeSource: 288 - Adding transactional method 'save' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+14:31:58,441 DEBUG ocessor$CustomAnnotationTransactionAttributeSource: 288 - Adding transactional method 'findOne' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.584 sec
+
+Results :
+
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ spring-data-jpa-example ---
+[INFO] Building jar: /home/msaavedra/workspace/trapster-demo/spring-data-jpa-example/target/spring-data-jpa-example-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.3:install (default-install) @ spring-data-jpa-example ---
+[INFO] Installing /home/msaavedra/workspace/trapster-demo/spring-data-jpa-example/target/spring-data-jpa-example-1.0-SNAPSHOT.jar to /home/msaavedra/.m2/repository/com/marithic/spring-data-jpa-example/1.0-SNAPSHOT/spring-data-jpa-example-1.0-SNAPSHOT.jar
+[INFO] Installing /home/msaavedra/workspace/trapster-demo/spring-data-jpa-example/pom.xml to /home/msaavedra/.m2/repository/com/marithic/spring-data-jpa-example/1.0-SNAPSHOT/spring-data-jpa-example-1.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] trapster-demo ..................................... SUCCESS [1.186s]
+[INFO] Spring Data JPA sample ............................ SUCCESS [13.341s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 14.849s
+[INFO] Finished at: Thu Oct 18 14:31:58 PDT 2012
+[INFO] Final Memory: 14M/127M
+[INFO] ------------------------------------------------------------------------
