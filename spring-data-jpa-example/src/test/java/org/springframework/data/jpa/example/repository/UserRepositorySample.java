@@ -2,6 +2,8 @@ package org.springframework.data.jpa.example.repository;
 
 import static org.junit.Assert.*;
 
+import java.sql.Date;
+
 import java.util.List;
 
 import org.junit.Test;
@@ -72,5 +74,23 @@ public class UserRepositorySample {
 
 		assertNotNull(users);
 		assertTrue(users.contains(user));
+	}
+
+	/**
+	 * Test creation date
+	 */
+	@Test
+	public void testUserDateCreated() {
+
+		User user = new User();
+		user.setUsername("username");
+
+		user = repository.save(user);
+
+		User reference = repository.findByTheUsersName("username");
+		assertEquals(user, reference);
+		Date refDate = reference.getDateCreated();
+		assertNotNull(refDate);
+		System.out.println(refDate);
 	}
 }
