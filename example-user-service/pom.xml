@@ -4,17 +4,16 @@
                         http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>com.marithic</groupId>
-    <artifactId>trapster-demo</artifactId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
+	<parent>
+		<groupId>com.marithic</groupId>
+		<artifactId>trapster-demo</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
 
 	<groupId>com.trapster.test.example.services.user</groupId>
 	<artifactId>example.user-service</artifactId>
 	<version>2.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
-
 
 	<name>example-user-service</name>
 	<properties>
@@ -36,8 +35,7 @@
 		<slf4j.version>1.6.1</slf4j.version>
 		<jaxb.version>2.2.4-1</jaxb.version>
 		<easymock.version>3.0</easymock.version>
-  </properties>
-
+	</properties>
 	<dependencies>
 		<!-- XXX: included to make the .properties files available on the classpath 
 			which is required for local Eclipse WTP deployment only!!! Will be excluded 
@@ -92,11 +90,10 @@
 			<version>${spring.integration.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>com.springsource.org.apache.commons.lang</artifactId>
-			<version>2.1.0</version>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
 		</dependency>
-
 		<!-- RestEasy Stuff -->
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
@@ -332,7 +329,7 @@
 			<version>3.2.1</version>
 		</dependency>
 
-		
+
 	</dependencies>
 
 	<profiles>

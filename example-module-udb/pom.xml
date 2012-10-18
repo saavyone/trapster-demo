@@ -85,11 +85,10 @@
 			<version>${spring.integration.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>com.springsource.org.apache.commons.lang</artifactId>
-			<version>2.1.0</version>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
 		</dependency>
-
 		<!-- RestEasy Stuff -->
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
