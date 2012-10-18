@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- stdout appender -->
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} %-5p [%t] %c: %m%n" />
+		</layout>
+	</appender>
+	
+	<!-- specific logger configurations -->
+	
+	<logger name="com.navteq.lbsp.ctg.trapster.services.User_service">
+		<level value="ERROR" />
+	</logger>
+	<logger name="log4j.logger.java.sql">
+		<level value="ERROR" />
+	</logger>
+	<logger name="httpclient">
+		<level value="DEBUG" />
+		<appender-ref ref="stdout" />
+	</logger>
+	
+	<!-- root logger -->
+	<root>
+		<priority value="ERROR" />
+		<appender-ref ref="stdout" />
+	</root>
+	
+</log4j:configuration>
+

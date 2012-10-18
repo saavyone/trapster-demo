@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.trapster.com/schema/2.0.0/trapster"
+	targetNamespace="http://www.trapster.com/schema/2.0.0/trapster"
+	version="2.0.0"
+	elementFormDefault="qualified">
+	<xs:element
+		name="trapster"
+		type="trapsterType" />
+	<xs:complexType name="trapsterType">
+		<xs:choice>
+			<xs:element
+				name="request"
+				type="trapsterRequestType" />
+			<xs:element
+				name="response"
+				type="trapsterResponseType" />
+		</xs:choice>
+	</xs:complexType>
+	<!-- REQUEST -->
+	<xs:complexType name="trapsterRequestType">
+		<xs:sequence>
+			<xs:element
+				name="meta"
+				type="metaType" />
+			<xs:element
+				name="auth"
+				type="authType" />
+			<xs:element
+				name="params"
+				type="paramsType"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="metaType">
+		<xs:sequence>
+			<xs:element
+				name="opsys"
+				type="xs:NCName" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="authType">
+		<xs:sequence>
+			<xs:element
+				name="appkey"
+				type="xs:NCName" />
+			<xs:element
+				name="login"
+				type="xs:NCName" />
+			<xs:element
+				name="pwdhash"
+				type="xs:NCName" />
+			<xs:element
+				name="devicetype"
+				type="xs:NCName" />
+			<xs:element
+				name="deviceid"
+				type="xs:NCName" />
+			<xs:element
+				name="appcapabilities"
+				type="xs:int" />
+			<xs:element
+				name="appid"
+				type="xs:NCName" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="paramsType">
+		<xs:sequence>
+			<!-- ========================== Trap Service ========================== -->
+			<xs:element
+				name="latitude"
+				type="xs:double"
+				minOccurs="0" />
+			<xs:element
+				name="longitude"
+				type="xs:double"
+				minOccurs="0" />
+			<xs:element
+				name="radius"
+				type="xs:double"
+				minOccurs="0" />
+			<xs:element
+				name="numvotes"
+				type="xs:int"
+				minOccurs="0" />
+			<xs:element
+				name="highestusercred"
+				type="xs:int"
+				minOccurs="0" />
+			<xs:element
+				name="traptypeids"
+				type="xs:long"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element
+				name="sortorder"
+				type="xs:NCName"
+				minOccurs="0" />
+			<xs:element
+				name="addr"
+				type="xs:NCName"
+				minOccurs="0" />
+			<xs:element
+				name="maxresults"
+				type="xs:int"
+				minOccurs="0" />
+			<xs:element
+				name="vote"
+				type="xs:NCName"
+				minOccurs="0" />
+			<xs:element
+				name="trapid"
+				type="xs:long"
+				minOccurs="0" />			
+			<!-- ========================== User Service ========================== -->
+			<xs:element
+				name="id"
+				type="xs:long"
+				minOccurs="0" />
+			<xs:element
+				name="login"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="displayname"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="emailaddr"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="pwdusernamehash"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="pwdemailhash"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="usercredlevel"
+				type="xs:int"
+				minOccurs="0" />
+			<xs:element
+				name="info"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="alertradius"
+				type="xs:double"
+				minOccurs="0" />
+			<xs:element
+				name="alert"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="signupepochtime"
+				type="xs:long"
+				minOccurs="0" />
+			<xs:element
+				name="lastvoteepochtime"
+				type="xs:long"
+				minOccurs="0" />
+			<xs:element
+				name="totaluservotes"
+				type="xs:int"
+				minOccurs="0" />
+			<xs:element
+				name="karma"
+				type="xs:int"
+				minOccurs="0" />
+			<xs:element
+				name="tosagreed"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="trustedgrouppref"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="privmsgpref"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="smsaddr"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="moderatorlevel"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="loggedontositeflag"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="newsletterflag"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="emailconfflag"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="userstatus"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="lastkarma"
+				type="xs:int"
+				minOccurs="0" />
+			<xs:element
+				name="sipallowedflag"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="loginfailures"
+				type="xs:int"
+				minOccurs="0" />
+			<xs:element
+				name="modapplyepochtime"
+				type="xs:long"
+				minOccurs="0" />
+			<xs:element
+				name="lastapiepochtime"
+				type="xs:long"
+				minOccurs="0" />
+			<xs:element
+				name="lastwebepochtime"
+				type="xs:long"
+				minOccurs="0" />
+			<xs:element
+				name="confirmepochtime"
+				type="xs:long"
+				minOccurs="0" />
+			<xs:element
+				name="confirmmethod"
+				type="xs:string"
+				minOccurs="0" />
+			<!-- Needed for signup -->
+			<xs:element
+				name="pwd"
+				type="xs:NCName"
+				nillable="true" />
+			<xs:element
+				name="pwdcnf"
+				type="xs:NCName"
+				nillable="true" />
+			<xs:element
+				name="carrier"
+				type="xs:NCName"
+				nillable="true" />
+			<!-- ========================== Attributes Service ========================== -->
+			<xs:element
+				name="modifiedaftertime"
+				type="xs:long"
+				minOccurs="0" />
+			<!-- ========================== Probe Service  ========================== -->
+			<xs:element
+				name="points"
+				type="point"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="point">
+		<xs:sequence>
+			<xs:element
+				name="latitude"
+				type="xs:double" />
+			<xs:element
+				name="longitude"
+				type="xs:double" />
+			<xs:element
+				name="time"
+				type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	<!-- RESPONSE -->
+	<xs:complexType name="trapsterResponseType">
+		<xs:sequence>
+			<xs:element
+				name="asofepochtime"
+				type="xs:long" />
+			<xs:element
+				name="status"
+				type="xs:NCName" />
+			<xs:element
+				name="statuscode"
+				type="xs:int" />
+			<xs:element
+				name="message"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="data"
+				type="dataType"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="dataType">
+		<xs:sequence>
+			<!-- ========================== Trap Service ========================== -->
+			<xs:element
+				name="marker"
+				type="markerType"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element
+				name="added"
+				type="xs:string"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element
+				name="removed"
+				type="xs:string"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+			<!-- ========================== User Service ========================== -->
+			<xs:element
+				name="id"
+				type="xs:long"
+				minOccurs="0" />
+			<xs:element
+				name="displayname"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="emailaddr"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="pwdusernamehash"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="mobilepwdhash"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="usercredlevel"
+				type="xs:int"
+				minOccurs="0" />
+			<xs:element
+				name="info"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="alertradius"
+				type="xs:double"
+				minOccurs="0" />
+			<xs:element
+				name="alert"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="signupepochtime"
+				type="xs:long"
+				minOccurs="0" />
+			<xs:element
+				name="lastvoteepochtime"
+				type="xs:long"
+				minOccurs="0" />
+			<xs:element
+				name="totaluservotes"
+				type="xs:int"
+				minOccurs="0" />
+			<xs:element
+				name="karma"
+				type="xs:int"
+				minOccurs="0" />
+			<xs:element
+				name="tosagreed"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="trustedgrouppref"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="privmsgpref"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="smsaddr"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="moderatorlevel"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="loggedontositeflag"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="newsletterflag"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="emailconfflag"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="userstatus"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="lastkarma"
+				type="xs:int"
+				minOccurs="0" />
+			<xs:element
+				name="sipallowedflag"
+				type="xs:string"
+				minOccurs="0" />
+			<xs:element
+				name="loginfailures"
+				type="xs:int"
+				minOccurs="0" />
+			<xs:element
+				name="modapplyepochtime"
+				type="xs:long"
+				minOccurs="0" />
+			<xs:element
+				name="lastapiepochtime"
+				type="xs:long"
+				minOccurs="0" />
+			<xs:element
+				name="lastwebepochtime"
+				type="xs:long"
+				minOccurs="0" />
+			<xs:element
+				name="confirmepochtime"
+				type="xs:long"
+				minOccurs="0" />
+			<xs:element
+				name="confirmmethod"
+				type="xs:string"
+				minOccurs="0" />
+			<!-- ========================== Attributes Service ========================== -->
+			<xs:element
+				name="color"
+				type="colorAttributeType"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element
+				name="image"
+				type="imageAttributeType"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element
+				name="string"
+				type="stringAttributeType"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element
+				name="trapcategory"
+				type="trapCategoryAttributeType"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element
+				name="traptype"
+				type="trapTypeAttributeType"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element
+				name="addedtheme"
+				type="themeAttributeType"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element
+				name="removedtheme"
+				type="xs:string"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element
+				name="addedpoi"
+				type="poitopicsType"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element
+				name="removedpoi"
+				type="xs:string"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+			<!--=============== Probe Service (Patrol)=================== -->
+			<xs:element 
+				name="patrolLines" 
+				type="patrolPointType"
+				minOccurs="0" 
+				maxOccurs="unbounded" />
+			
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="markerType">
+		<xs:sequence>
+			<xs:element
+				name="id"
+				type="xs:long" />
+			<xs:element
+				name="latitude"
+				type="xs:double" />
+			<xs:element
+				name="longitude"
+				type="xs:double" />
+			<xs:element
+				name="traptypeid"
+				type="xs:long" />
+			<xs:element
+				name="numvotes"
+				type="xs:int" />
+			<xs:element
+				name="origdisplayname"
+				type="xs:NCName" />
+			<xs:element
+				name="lastupdatedisplayname"
+				type="xs:NCName" />
+			<xs:element
+				name="lastvoteepochtime"
+				type="xs:long" />
+			<xs:element
+				name="trapaddress"
+				type="xs:NCName" />
+			<xs:element
+				name="trapcredlevel"
+				type="xs:int" />
+			<xs:element
+				name="lifetime"
+				type="xs:long" />
+			<xs:element
+				name="badgekey"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="attributeType">
+		<xs:sequence>
+			<xs:element
+				name="id"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="colorAttributeType">
+		<xs:complexContent>
+			<xs:extension base="attributeType">
+				<xs:sequence>
+					<xs:element
+						name="rgba"
+						type="xs:string" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="imageAttributeType">
+		<xs:complexContent>
+			<xs:extension base="attributeType">
+				<xs:sequence>
+					<xs:element
+						name="path"
+						type="xs:string" />
+					<xs:element
+						name="spec"
+						type="imageSpecType" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="imageSpecType">
+		<xs:sequence>
+			<xs:element
+				name="width"
+				type="xs:int" />
+			<xs:element
+				name="height"
+				type="xs:int" />
+			<xs:element
+				name="pinx"
+				type="xs:int" />
+			<xs:element
+				name="piny"
+				type="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="stringAttributeType">
+		<xs:complexContent>
+			<xs:extension base="attributeType">
+				<xs:sequence>
+					<xs:element
+						name="text"
+						type="CDataString" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="CDataString">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+	<xs:complexType name="trapCategoryAttributeType">
+		<xs:complexContent>
+			<xs:extension base="attributeType">
+				<xs:sequence>
+					<xs:element
+						name="name"
+						type="xs:string" />
+					<xs:element
+						name="sequence"
+						type="xs:long" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="trapTypeAttributeType">
+		<xs:complexContent>
+			<xs:extension base="attributeType">
+				<xs:sequence>
+					<xs:element
+						name="category"
+						type="xs:int" />
+					<xs:element
+						name="name"
+						type="xs:string" />
+					<xs:element
+						name="description"
+						type="xs:string" />
+					<xs:element
+						name="icons"
+						type="trapTypeIconType" />
+					<xs:element
+						name="reportable"
+						type="xs:string" />
+					<xs:element
+						name="alertable"
+						type="xs:string" />
+					<xs:element
+						name="votable"
+						type="xs:string" />
+					<xs:element
+						name="audioid"
+						type="xs:string" />
+					<xs:element
+						name="announces"
+						type="xs:string" />
+					<xs:element
+						name="notifiable"
+						type="xs:string" />
+					<xs:element
+						name="lifetime"
+						type="xs:long" />
+					<xs:element
+						name="levels"
+						type="trapTypeLevelListType" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="trapTypeIconType">
+		<xs:sequence>
+			<xs:element
+				name="alt2"
+				type="xs:string" />
+			<xs:element
+				name="alt1"
+				type="xs:string" />
+			<xs:element
+				name="base"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="trapTypeLevelListType">
+		<xs:sequence>
+			<xs:element
+				name="level"
+				type="trapTypeLevelType"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="trapTypeLevelType">
+		<xs:sequence>
+			<xs:element
+				name="bit"
+				type="xs:long" />
+			<xs:element
+				name="levelname"
+				type="xs:string" />
+			<xs:element
+				name="icon"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="themeAttributeType">
+		<xs:complexContent>
+			<xs:extension base="attributeType">
+				<xs:sequence>
+					<xs:element
+						name="name"
+						type="xs:string" />
+					<xs:element
+						name="description"
+						type="xs:string" />
+					<xs:element
+						name="author"
+						type="xs:string" />
+					<xs:element
+						name="created"
+						type="xs:long" />
+					<xs:element
+						name="updated"
+						type="xs:long" />
+					<xs:element
+						name="version"
+						type="xs:string" />
+					<xs:element
+						name="links"
+						type="themeLinkListType" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="poitopicsType">
+		<xs:complexContent>
+			<xs:extension base="attributeType">
+				<xs:sequence>
+					<xs:element
+						name="name"
+						type="xs:string" />
+					<xs:element
+						name="search"
+						type="xs:string"
+						minOccurs="0"
+						maxOccurs="1" />
+					<xs:element
+						name="icon"
+						type="xs:string"
+						minOccurs="0"
+						maxOccurs="1" />
+					<xs:element
+						name="enabled"
+						type="xs:string"
+						minOccurs="0"
+						maxOccurs="1" />
+					<xs:element
+						name="created"
+						type="xs:long" />
+					<xs:element
+						name="updated"
+						type="xs:long"
+						minOccurs="0"
+						maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="themeLinkListType">
+		<xs:sequence>
+			<xs:element
+				name="link"
+				type="themeLinkType"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="themeLinkType">
+		<xs:sequence>
+			<xs:element
+				name="lid"
+				type="xs:string" />
+			<xs:element
+				name="path"
+				type="xs:string" />
+			<xs:element
+				name="formats"
+				type="themeLinkFormatType" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="themeLinkFormatType">
+		<xs:sequence>
+			<xs:element
+				name="aiff"
+				type="xs:string"
+				minOccurs="0"
+				maxOccurs="1" />
+			<xs:element
+				name="mp3"
+				type="xs:string"
+				minOccurs="0"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="patrolPointType">
+		<xs:sequence>
+			<xs:element 
+				name="latitude" 
+				type="xs:double" />
+			<xs:element 
+				name="longitude" 
+				type="xs:double" />
+			<xs:element 
+				name="color" 
+				type="xs:NCName" />
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

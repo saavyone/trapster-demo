@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper>
+	<resultMap
+		id="BaseResultMap"
+		type="com.navteq.lbsp.ctg.trapster.modules.udb.domain.Udb">
+		<id
+			column="id"
+			property="id"
+			jdbcType="BIGINT" />
+		<result
+			column="name"
+			property="name"
+			jdbcType="VARCHAR" />
+		<result
+			column="uname"
+			property="uname"
+			jdbcType="VARCHAR" />
+		<result
+			column="pwd"
+			property="pwd"
+			jdbcType="VARCHAR" />
+		<result
+			column="new_password"
+			property="newPassword"
+			jdbcType="VARCHAR" />
+		<result
+			column="m_password"
+			property="mPassword"
+			jdbcType="VARCHAR" />
+		<result
+			column="level"
+			property="level"
+			jdbcType="INTEGER" />
+		<result
+			column="info"
+			property="info"
+			jdbcType="VARCHAR" />
+		<result
+			column="aradius"
+			property="aradius"
+			jdbcType="DOUBLE" />
+		<result
+			column="alert"
+			property="alert"
+			jdbcType="VARCHAR" />
+		<result
+			column="signupdate"
+			property="signupdate"
+			jdbcType="TIMESTAMP" />
+		<result
+			column="lastvotetime"
+			property="lastvotetime"
+			jdbcType="TIMESTAMP" />
+		<result
+			column="numvotes"
+			property="numvotes"
+			jdbcType="INTEGER" />
+		<result
+			column="karma"
+			property="karma"
+			jdbcType="INTEGER" />
+		<result
+			column="agreed"
+			property="agreed"
+			jdbcType="VARCHAR" />
+		<result
+			column="tgpref"
+			property="tgpref"
+			jdbcType="VARCHAR" />
+		<result
+			column="pmpref"
+			property="pmpref"
+			jdbcType="VARCHAR" />
+		<result
+			column="pmsmsaddr"
+			property="pmsmsaddr"
+			jdbcType="VARCHAR" />
+		<result
+			column="global_moderator"
+			property="global_moderator"
+			jdbcType="INTEGER" />
+		<result
+			column="logged_site"
+			property="logged_site"
+			jdbcType="CHAR" />
+		<result
+			column="newsletter"
+			property="newsletter"
+			jdbcType="CHAR" />
+		<result
+			column="email_conf"
+			property="email_conf"
+			jdbcType="CHAR" />
+		<result
+			column="status"
+			property="status"
+			jdbcType="VARCHAR" />
+		<result
+			column="lastkarma"
+			property="lastkarma"
+			jdbcType="INTEGER" />
+		<result
+			column="sip"
+			property="sip"
+			jdbcType="VARCHAR" />
+		<result
+			column="loginfailures"
+			property="loginfailures"
+			jdbcType="INTEGER" />
+		<result
+			column="modapplydate"
+			property="modapplydate"
+			jdbcType="TIMESTAMP" />
+		<result
+			column="lastapitime"
+			property="lastapitime"
+			jdbcType="TIMESTAMP" />
+		<result
+			column="lastwebtime"
+			property="lastwebtime"
+			jdbcType="TIMESTAMP" />
+		<result
+			column="confirmdate"
+			property="confirmdate"
+			jdbcType="TIMESTAMP" />
+		<result
+			column="confirmmethod"
+			property="confirmmethod"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">id, name, uname, pwd, new_password, m_password, level,
+		info, aradius, alert, signupdate, lastvotetime, numvotes, karma,
+		agreed, tgpref, pmpref, pmsmsaddr, global_moderator, logged_site,
+		newsletter, email_conf, status, lastkarma, sip, loginfailures,
+		modapplydate, lastapitime, lastwebtime, confirmdate, confirmmethod
+	</sql>
+	<delete id="deleteById">delete from udb where id = #{id,jdbcType=BIGINT}
+	</delete>
+	<insert
+		id="insert"
+		parameterType="com.navteq.lbsp.ctg.trapster.modules.udb.domain.Udb"
+		useGeneratedKeys="true"
+		keyProperty="id">
+		insert into udb
+		<trim
+			prefix="("
+			suffix=")"
+			suffixOverrides=",">
+			<if test="name != null">name,</if>
+			<if test="uname != null">uname,</if>
+			<if test="pwd != null">pwd,</if>
+			<if test="newPassword != null">new_password,</if>
+			<if test="mPassword != null">m_password,</if>
+			<if test="level != null">level,</if>
+			<if test="info != null">info,</if>
+			<if test="aradius != null">aradius,</if>
+			<if test="alert != null">alert,</if>
+			<if test="signupdate != null">signupdate,</if>
+			<if test="lastvotetime != null">lastvotetime,</if>
+			<if test="numvotes != null">numvotes,</if>
+			<if test="karma != null">karma,</if>
+			<if test="agreed != null">agreed,</if>
+			<if test="tgpref != null">tgpref,</if>
+			<if test="pmpref != null">pmpref,</if>
+			<if test="pmsmsaddr != null">pmsmsaddr,</if>
+			<if test="globalModerator != null">global_moderator,</if>
+			<if test="loggedSite != null">logged_site,</if>
+			<if test="newsletter != null">newsletter,</if>
+			<if test="emailConf != null">email_conf,</if>
+			<if test="status != null">status,</if>
+			<if test="lastkarma != null">lastkarma,</if>
+			<if test="sip != null">sip,</if>
+			<if test="loginfailures != null">loginfailures,</if>
+			<if test="modapplydate != null">modapplydate,</if>
+			<if test="lastapitime != null">lastapitime,</if>
+			<if test="lastwebtime != null">lastwebtime,</if>
+			<if test="confirmdate != null">confirmdate,</if>
+			<if test="confirmmethod != null">confirmmethod,</if>
+		</trim>
+		<trim
+			prefix=" values ("
+			suffix=")"
+			suffixOverrides=",">
+			<if test="name != null">#{name,jdbcType=VARCHAR},</if>
+			<if test="uname != null">#{uname,jdbcType=VARCHAR},</if>
+			<if test="pwd != null">#{pwd,jdbcType=VARCHAR},</if>
+			<if test="newPassword != null">#{new_Password,jdbcType=VARCHAR},</if>
+			<if test="mPassword != null">#{m_Password, jdbcType=VARCHAR},</if>
+			<if test="level != null">#{level,jdbcType=INTEGER},</if>
+			<if test="info != null">#{info, jdbcType=VARCHAR},</if>
+			<if test="aradius != null">#{aradius,jdbcType=DOUBLE},</if>
+			<if test="alert != null">#{alert, jdbcType=VARCHAR},</if>
+			<if test="signupdate != null">#{signupdate,jdbcType=TIMESTAMP},</if>
+			<if test="lastvotetime != null">#{lastvotetime, jdbcType=TIMESTAMP},</if>
+			<if test="numvotes != null">#{numvotes,jdbcType=INTEGER},</if>
+			<if test="karma != null">#{karma, jdbcType=INTEGER},</if>
+			<if test="agreed != null">#{agreed,jdbcType=VARCHAR},</if>
+			<if test="tgpref != null">#{tgpref, jdbcType=VARCHAR},</if>
+			<if test="pmpref != null">#{pmpref,jdbcType=VARCHAR},</if>
+			<if test="pmsmsaddr != null">#{pmsmsaddr, jdbcType=VARCHAR},</if>
+			<if test="globalModerator != null">#{globalModerator,jdbcType=INTEGER},</if>
+			<if test="loggedSite != null">#{loggedSite, jdbcType=CHAR},</if>
+			<if test="newsletter != null">#{newsletter,jdbcType=CHAR},</if>
+			<if test="emailConf != null">#{emailConf, jdbcType=CHAR},</if>
+			<if test="status != null">#{status,jdbcType=VARCHAR},</if>
+			<if test="lastkarma != null">#{lastkarma, jdbcType=INTEGER},</if>
+			<if test="sip != null">#{sip,jdbcType=VARCHAR},</if>
+			<if test="loginfailures != null">#{loginfailures, jdbcType=INTEGER},</if>
+			<if test="modapplydate != null">#{modapplydate,jdbcType=TIMESTAMP},</if>
+			<if test="lastapitime != null">#{lastapitime, jdbcType=TIMESTAMP},</if>
+			<if test="lastwebtime != null">#{lastwebtime, jdbcType=TIMESTAMP},</if>
+			<if test="confirmdate != null">#{confirmdate,jdbcType=TIMESTAMP},</if>
+			<if test="confirmmethod != null">#{confirmmethod, jdbcType=VARCHAR}</if>
+		</trim>
+	</insert>
+	<select
+		id="selectById"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from udb where id = #{id,jdbcType=BIGINT}
+	</select>
+	<select
+		id="selectByName"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from udb where name = #{name,jdbcType=VARCHAR}
+	</select>
+	<select
+		id="selectByNameOrUname"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from udb where name = #{nameOrUname,jdbcType=VARCHAR} or uname =
+		#{nameOrUname,jdbcType=VARCHAR}
+	</select>
+	<select
+		id="selectByUname"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from udb where uname = #{uname,jdbcType=VARCHAR}
+	</select>
+	<update
+		id="update"
+		parameterType="com.navteq.lbsp.ctg.trapster.modules.udb.domain.Udb">
+		update udb
+		<set>
+			<if test="name != null">name = #{name,jdbcType=VARCHAR},</if>
+			<if test="uname != null">uname = #{uname,jdbcType=VARCHAR},</if>
+			<if test="pwd != null">pwd = #{pwd,jdbcType=VARCHAR},</if>
+			<if test="newPassword != null">new_password = #{newPassword,jdbcType=VARCHAR},</if>
+			<if test="mPassword != null">m_password = #{mPassword,jdbcType=VARCHAR},</if>
+			<if test="level != null">level = #{level,jdbcType=INTEGER},</if>
+			<if test="info != null">info = #{info,jdbcType=VARCHAR},</if>
+			<if test="aradius != null">aradius = #{aradius,jdbcType=DOUBLE},</if>
+			<if test="alert != null">alert = #{alert,jdbcType=VARCHAR},</if>
+			<if test="signupdate != null">signupdate = #{signupdate,jdbcType=TIMESTAMP},</if>
+			<if test="lastvotetime != null">lastvotetime = #{lastvotetime,jdbcType=TIMESTAMP},</if>
+			<if test="numvotes != null">numvotes = #{numvotes,jdbcType=INTEGER},</if>
+			<if test="karma != null">karma = #{karma,jdbcType=INTEGER},</if>
+			<if test="agreed != null">agreed = #{agreed,jdbcType=VARCHAR},</if>
+			<if test="tgpref != null">tgpref = #{tgpref,jdbcType=VARCHAR},</if>
+			<if test="pmpref != null">pmpref = #{pmpref,jdbcType=VARCHAR},</if>
+			<if test="pmsmsaddr != null">pmsmsaddr = #{pmsmsaddr,jdbcType=VARCHAR},</if>
+			<if test="globalModerator != null">global_moderator = #{globalModerator,jdbcType=INTEGER},
+			</if>
+			<if test="loggedSite != null">logged_site = #{loggedSite,jdbcType=CHAR},</if>
+			<if test="newsletter != null">newsletter = #{newsletter,jdbcType=CHAR},</if>
+			<if test="emailConf != null">email_conf = #{emailConf,jdbcType=CHAR},</if>
+			<if test="status != null">status = #{status,jdbcType=VARCHAR},</if>
+			<if test="lastkarma != null">lastkarma = #{lastkarma,jdbcType=INTEGER},</if>
+			<if test="sip != null">sip = #{sip,jdbcType=VARCHAR},</if>
+			<if test="loginfailures != null">loginfailures = #{loginfailures,jdbcType=INTEGER},</if>
+			<if test="modapplydate != null">modapplydate = #{modapplydate,jdbcType=TIMESTAMP},</if>
+			<if test="lastapitime != null">lastapitime = #{lastapitime,jdbcType=TIMESTAMP},</if>
+			<if test="lastwebtime != null">lastwebtime = #{lastwebtime,jdbcType=TIMESTAMP},</if>
+			<if test="confirmdate != null">confirmdate = #{confirmdate,jdbcType=TIMESTAMP},</if>
+			<if test="confirmmethod != null">confirmmethod = #{confirmmethod,jdbcType=VARCHAR},</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+</mapper>

@@ -7,9 +7,7 @@
     <artifactId>trapster-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.marithic</groupId>
   <artifactId>example-user-service</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <name>example-user-service</name>
   <url>http://maven.apache.org</url>
   <properties>

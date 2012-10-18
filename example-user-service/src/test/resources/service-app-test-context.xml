@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<import resource="classpath:service-app-context.xml" />
+	
+	<context:component-scan base-package="com.navteq.lbsp.ctg.trapster" />
+	<!-- Recommended for bean autowiring -->
+	
+	
+
+
+
+	<!-- embedded test server -->
+	<bean id="server"
+		class="com.navteq.lbsp.ctg.trapster.modules.test_utils.server.EmbeddedSpringTestServer"
+		p:port="3001" 
+		p:bindAddress="localhost" 
+		p:maxKeepAliveConnections="1"
+		p:rootResourcePath="/User-service-example" 
+		init-method="start"
+		destroy-method="stop" />
+
+</beans>
