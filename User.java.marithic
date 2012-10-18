@@ -6,6 +6,8 @@ import javax.persistence.NamedQuery;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import java.sql.Date;
+
 /**
  * Sample user class.
  * 
@@ -22,6 +24,8 @@ public class User extends AbstractPersistable<Long> {
 
 	private String firstname;
 	private String lastname;
+	
+	private Date dateCreated;
 
 	public User() {
 		this(null);
@@ -32,6 +36,7 @@ public class User extends AbstractPersistable<Long> {
 	 */
 	public User(Long id) {
 		this.setId(id);
+		this.setDateCreated(new Date(System.currentTimeMillis()));
 	}
 
 	/**
@@ -77,5 +82,19 @@ public class User extends AbstractPersistable<Long> {
 	 */
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+
+	/**
+	 * @return the dateCreated
+	 */
+	public Date getDateCreated() {
+		return dateCreated;
+	}
+
+	/**
+	 * @param dateCreated the dateCreated to set
+	 */
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
 	}
 }
