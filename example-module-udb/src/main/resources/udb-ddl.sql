@@ -1,5 +1,5 @@
-DROP TABLE `trapster_ci_bamboo`.`udb`; 
-CREATE TABLE IF NOT EXISTS `udb` (
+DROP TABLE IF EXISTS `trapster-demo`.`udb`; 
+CREATE TABLE IF NOT EXISTS `trapster-demo`.`udb` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL DEFAULT 'unknown',
   `uname` varchar(60) NOT NULL,
