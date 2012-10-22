@@ -4,12 +4,6 @@
                         http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>com.marithic</groupId>
-		<artifactId>trapster-demo</artifactId>
-		<version>1.0-SNAPSHOT</version>
-	</parent>
-
 	<groupId>com.trapster.test.example.services.user</groupId>
 	<artifactId>example.user-service</artifactId>
 	<version>2.0.0-SNAPSHOT</version>
@@ -17,6 +11,7 @@
 
 	<name>example-user-service</name>
 	<properties>
+		<java.version>1.6</java.version>
 		<root.name.service>example-user-service</root.name.service>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- Internally Managed Dependancies -->
@@ -481,9 +476,20 @@
 	</profiles>
 	<build>
 		<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.5.1</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.10</version>
 				<configuration>
 					<skip>false</skip>
 				</configuration>
@@ -497,6 +503,12 @@
 					<packagingExcludes>WEB-INF/lib/${root.name.service}-config-${project.parent.version}.jar</packagingExcludes>
 				</configuration>
 			</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-eclipse-plugin</artifactId>
+					<version>2.9</version>
+				</plugin>
+
 		</plugins>
 	</build>
 

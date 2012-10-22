@@ -36,7 +36,7 @@ public class UserResourceTest {
 	private TrapsterType testPayload = null;
 
 	@Before
-	private void setUp() {
+	public void setUp() {
 		// set up user info in request
 		TrapsterRequestType requestBody = new TrapsterRequestType();
 		requestBody.setParams(new ParamsType());
