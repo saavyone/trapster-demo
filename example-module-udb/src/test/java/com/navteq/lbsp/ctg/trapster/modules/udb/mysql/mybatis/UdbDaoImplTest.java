@@ -95,14 +95,14 @@ public class UdbDaoImplTest
 	{
 		Assert.assertNotNull(udbDao);
 		//
-		Udb user= udbDao.getById(1L);
+		Udb user= udbDao.getByName("demo");
 		Assert.assertNotNull(user);
 		//
 		int numvotes= user.getNumvotes();
 		user.setNumvotes(numvotes + 1);
 		udbDao.update(user);
 		//
-		user= udbDao.getById(1L);
+		user= udbDao.getByName("demo");
 		Assert.assertNotNull(user);
 		Assert.assertTrue(user.getNumvotes() == (numvotes + 1));
 	}	

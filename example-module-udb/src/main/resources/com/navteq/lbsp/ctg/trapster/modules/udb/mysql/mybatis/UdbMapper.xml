@@ -125,6 +125,10 @@
 			property="confirmdate"
 			jdbcType="TIMESTAMP" />
 		<result
+			column="oauthdate"
+			property="oauthdate"
+			jdbcType="TIMESTAMP" />
+		<result
 			column="confirmmethod"
 			property="confirmmethod"
 			jdbcType="VARCHAR" />

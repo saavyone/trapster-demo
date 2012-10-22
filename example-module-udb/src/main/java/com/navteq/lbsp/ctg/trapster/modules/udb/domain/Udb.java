@@ -197,6 +197,12 @@ public class Udb
 	 */
 	private String	confirmmethod;
 	
+	/**
+	 * This field corresponds to the database column udb.oauthdate
+	 * 
+	 */
+	private Date oauthdate;
+
 	
 	//
 	public Udb(UdbPopulatorType udbPopulaterType){
@@ -276,6 +282,7 @@ public class Udb
 		lastapitime= user.getLastapitime();
 		lastwebtime= user.getLastwebtime();
 		confirmdate= user.getConfirmdate();
+		oauthdate= user.getOauthdate();
 		confirmmethod= user.getConfirmmethod();
 }
 	
@@ -922,6 +929,25 @@ public class Udb
 		this.confirmmethod= confirmmethod;
 	}
 
+	/**
+	 * @return the value of udb.oauthdate
+	 * 
+	 */
+	public Date getOauthdate()
+	{
+		return oauthdate;
+	}
+
+	/**
+	 * @param oauthdate
+	 *            the value for udb.oauthdate
+	 * 
+	 */
+	public void setOauthdate(Date oauthdate)
+	{
+		this.oauthdate= oauthdate;
+	}
+
 	public String toString()
 	{
 
@@ -997,6 +1023,14 @@ public class Udb
 		else
 		{
 			sb.append(" confirmdate= null");
+		}
+		if (oauthdate != null)
+		{
+			sb.append(" oauthdate= " + oauthdate.toString() + " ");
+		}
+		else
+		{
+			sb.append(" oauthdate= null");
 		}
 		sb.append(" confirmmethod= " + confirmmethod);
 

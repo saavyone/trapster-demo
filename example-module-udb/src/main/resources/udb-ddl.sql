@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `trapster-demo`.`udb` (
   `lastapitime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `lastwebtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `confirmdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `oauthdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `confirmmethod` varchar(2) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `name` (`name`),
