@@ -1,16 +1,17 @@
 package com.navteq.lbsp.ctg.trapster.modules.udb.mysql.mybatis;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.Date;
+
 import javax.inject.Inject;
+
 import junit.framework.Assert;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.internal.runners.statements.Fail;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
@@ -105,5 +106,20 @@ public class UdbDaoImplTest
 		user= udbDao.getByName("demo");
 		Assert.assertNotNull(user);
 		Assert.assertTrue(user.getNumvotes() == (numvotes + 1));
+	}	
+	@Test
+	public void testOauthdate()
+	{
+		Assert.assertNotNull(udbDao);
+		//
+		Udb user= udbDao.getByName("demo");
+		Assert.assertNotNull(user);
+		//
+		Date oaDate = user.getOauthdate();
+		Date newDate = new Date();
+		//should be different
+		Assert.assertNotSame(oaDate, newDate);
+		user.setOauthdate(newDate);
+		udbDao.update(user);
 	}	
 }

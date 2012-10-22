@@ -137,7 +137,7 @@
 		info, aradius, alert, signupdate, lastvotetime, numvotes, karma,
 		agreed, tgpref, pmpref, pmsmsaddr, global_moderator, logged_site,
 		newsletter, email_conf, status, lastkarma, sip, loginfailures,
-		modapplydate, lastapitime, lastwebtime, confirmdate, confirmmethod
+		modapplydate, lastapitime, lastwebtime, confirmdate, confirmmethod, oauthdate
 	</sql>
 	<delete id="deleteById">delete from udb where id = #{id,jdbcType=BIGINT}
 	</delete>
@@ -180,6 +180,7 @@
 			<if test="lastapitime != null">lastapitime,</if>
 			<if test="lastwebtime != null">lastwebtime,</if>
 			<if test="confirmdate != null">confirmdate,</if>
+			<if test="oauthdate != null">oauthdate,</if>
 			<if test="confirmmethod != null">confirmmethod,</if>
 		</trim>
 		<trim
@@ -215,6 +216,7 @@
 			<if test="lastapitime != null">#{lastapitime, jdbcType=TIMESTAMP},</if>
 			<if test="lastwebtime != null">#{lastwebtime, jdbcType=TIMESTAMP},</if>
 			<if test="confirmdate != null">#{confirmdate,jdbcType=TIMESTAMP},</if>
+			<if test="oauthdate != null">#{oauthdate,jdbcType=TIMESTAMP},</if>
 			<if test="confirmmethod != null">#{confirmmethod, jdbcType=VARCHAR}</if>
 		</trim>
 	</insert>
@@ -282,6 +284,7 @@
 			<if test="lastapitime != null">lastapitime = #{lastapitime,jdbcType=TIMESTAMP},</if>
 			<if test="lastwebtime != null">lastwebtime = #{lastwebtime,jdbcType=TIMESTAMP},</if>
 			<if test="confirmdate != null">confirmdate = #{confirmdate,jdbcType=TIMESTAMP},</if>
+			<if test="oauthdate != null">oauthdate = #{oauthdate,jdbcType=TIMESTAMP},</if>
 			<if test="confirmmethod != null">confirmmethod = #{confirmmethod,jdbcType=VARCHAR},</if>
 		</set>
 		where id = #{id,jdbcType=BIGINT}
