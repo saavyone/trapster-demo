@@ -1,5 +1,8 @@
 package com.navteq.lbsp.ctg.trapster.services.User_service.resources;
 
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.InputStreamReader;
 import java.util.Date;
 
 import javax.ws.rs.core.MediaType;
@@ -19,8 +22,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.navteq.lbsp.ctg.trapster.modules.commons.domain.DataType;
 import com.navteq.lbsp.ctg.trapster.modules.commons.domain.ParamsType;
 import com.navteq.lbsp.ctg.trapster.modules.commons.domain.TrapsterRequestType;
+import com.navteq.lbsp.ctg.trapster.modules.commons.domain.TrapsterResponseType;
 import com.navteq.lbsp.ctg.trapster.modules.commons.domain.TrapsterType;
 import com.navteq.lbsp.ctg.trapster.modules.test_utils.easymock.EasyMockAwareEmbeddedSpringTestServerContextLoader;
+import com.navteq.lbsp.ctg.trapster.modules.udb.TrapsterUdbException;
 
 //@DirtiesContext(classMode= ClassMode.AFTER_CLASS)
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -31,7 +36,7 @@ public class UserResourceTest {
 
 	private final static Log LOGGER = LogFactory.getLog(UserResourceTest.class);
 
-	private static int testUserId = 0;
+	private static Long testUserId = 0L;
 
 	private TrapsterType testPayload = null;
 
@@ -77,7 +82,6 @@ public class UserResourceTest {
 		this.testPayload.setRequest(requestBody);
 	}
 
-	
 	@Test
 	/**
 	 * DISPLAYNAME is based on udb.name
@@ -86,13 +90,20 @@ public class UserResourceTest {
 	 */
 	public void testGETbyDISPLAYNAME() throws Exception {
 
-		// TODO build and execute request
-		ClientRequest request = new ClientRequest(SRV_URI);
+		// build and execute request
+		ClientRequest request = new ClientRequest(SRV_URI + "/demo");
 		request.accept(MediaType.APPLICATION_XML);
 
-		// TODO test get response
+		// test get response
 		ClientResponse<TrapsterType> response = request.get(TrapsterType.class);
-		TrapsterType TrapsterType = response.getEntity();
+		Assert.assertEquals("Status code was:" + response.getStatus(),
+				200, response.getStatus());
+		DataType user = response.getEntity().getResponse().getData();
+		Assert.assertNotNull(user);
+		Assert.assertNotNull(user.getDisplayname());
+		Assert.assertEquals("demo", user.getDisplayname());
+		testUserId = user.getId();
+		
 		response.releaseConnection();
 
 	}
@@ -100,51 +111,33 @@ public class UserResourceTest {
 	@Test
 	public void testPOST() throws Exception {
 
-		// TODO test POST in XML
-
 		// build and execute request
-		ClientRequest request = new ClientRequest(SRV_URI);
+		ClientRequest request = new ClientRequest(SRV_URI + "/demo");
 		request.accept(MediaType.APPLICATION_XML);
+		request.body(MediaType.APPLICATION_ATOM_XML, this.testPayload);
 
 		// get response
-		ClientResponse<TrapsterType> response = request
-				.post(TrapsterType.class);
+		ClientResponse<TrapsterType> response = request.post(TrapsterType.class);
 
 		// get what you need out of the response and release the connection
-		TrapsterType trapsterType = (TrapsterType) response.getEntity();
+		TrapsterType trapsterType = response.getEntity();
+		DataType user = trapsterType.getResponse().getData();
+		Assert.assertNotNull(user);
 		response.releaseConnection();
-
-		// TODO check database for new record
-
-	}
-
-	@Test
-	public void testGet() throws Exception {
-
-		// build and execute request
-		ClientRequest request = new ClientRequest(SRV_URI);
-		request.accept(MediaType.APPLICATION_XML);
-
-		// get response
-		ClientResponse<TrapsterType> response = request.get(TrapsterType.class);
-		TrapsterType trapsterResponseType = response.getEntity();
-		response.releaseConnection();
-
-	
-		Assert.assertEquals("Status code was:"
-				+ trapsterResponseType.getResponse().getStatuscode(), 301,
-				trapsterResponseType.getResponse().getStatuscode());
 
 	}
 
 	@Test
 	public void testDelete() throws Exception {
-		ClientRequest request = new ClientRequest(SRV_URI + "/" + testUserId);
+		ClientRequest request = new ClientRequest(SRV_URI + "/demo");
+		request.accept(MediaType.APPLICATION_XML);
 
-		// TODO test delete response
-		ClientResponse<TrapsterType> response = request
-				.delete(TrapsterType.class);
-		TrapsterType TrapsterType = response.getEntity();
+		ClientResponse<TrapsterType> response = request.delete(TrapsterType.class);
+		Assert.assertEquals("Status code was:" + response.getStatus(),
+				200, response.getStatus());
+		DataType user = response.getEntity().getResponse().getData();
+		Assert.assertNotNull(user);
+		
 		response.releaseConnection();
 
 	}
